@@ -1,0 +1,38 @@
+{
+  "name": "6-chat",
+  "version": "1.0.0",
+  "description": "chat-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Marcin-Kurpiewski/6-Chat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Marcin-Kurpiewski/6-Chat/issues"
+  },
+  "homepage": "https://github.com/Marcin-Kurpiewski/6-Chat#readme",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "express": "^4.15.4",
+    "html-webpack-plugin": "^2.30.1",
+    "optimize-js-plugin": "0.0.4",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-hot-loader": "^1.3.1",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.8.0"
+  }
+}
