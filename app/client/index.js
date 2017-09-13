@@ -1,39 +1,23 @@
-const express = require('express');
-const http = require('http');
-const socketIo = require('socket.io');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { AppContainer } from 'react-hot-loader';
 
-const app = express();
-const server = http.createServer(app);
-const io = socketIo(server);
+import App from './App';
 
-app.use(express.static(__dirname + '/public'));
+const render = (Component) => {
+    ReactDOM.render(
+    <AppContainer>
+    <Component/>
+    </AppContainer>,
+        document.getElementById('root')
+);
+};
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+render(App);
+
+if (module.hot) {
+    module.hot.accept('./App', () => {
+        const NewApp = require('./App').default;
+    render(NewApp)
 });
-
-// nasłuchiwanie na połączenie
-
-io.on('connection', function(socket) {
-
-    // klient nasłuchuje na wiadomość wejścia do czatu
-    socket.on('join', function(name){
-        // użytkownika, który pojawił się w aplikacji zapisujemy do serwisu trzymającego listę osób w czacie
-        userService.addUser({
-            id: socket.id,
-            name: name
-        });
-        // aplikacja emituje zdarzenie update, które aktualizuje informację na temat listy użytkowników każdemu nasłuchującemu na wydarzenie 'update'
-        io.emit('update', {
-            users: userService.getAllUsers()
-        });
-    });
-
-
-});
-
-
-
-server.listen(3000, function(){
-    console.log('listening on *:3000');
-});
+}

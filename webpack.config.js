@@ -4,15 +4,17 @@ var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 var OptimizeJsPlugin = require('optimize-js-plugin');
 
 
-var env = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV || 'production';
+
+/*
 var plugins = [
     new HtmlWebpackPlugin({
-        template: 'src/index.html',
+        template: 'client/index.html',
         filename: 'index.html',
         inject: 'body',
     })
 ];
-
+*/
 console.log('NODE_ENV:', env);
 
 if (env === 'production') {
