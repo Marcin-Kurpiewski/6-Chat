@@ -32,11 +32,11 @@ module.exports = {
         'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server',
-        './client/index.js'
+        './app/client/index.js'
     ],
     output: {
-        path: __dirname + '/bundle.js',
-        filename: resolve(__dirname, public),
+        filename: 'bundle.js',
+        path: resolve(__dirname, 'app/public'),
     },
     module: {
         rules: [
