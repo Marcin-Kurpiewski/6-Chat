@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import io from 'socket.io-client';
 import styles from './App.css';
 import MessageForm from './MessageForm';
 import MessageList from './MessageList';
-import UsersList from './UsersList';
+import UsersList from './UserList';
 import UserForm from './UserForm';
-const socket = io('/');
+const socket = io.connect('http://localhost:3000');
 
-class App extends Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {users: [], messages: [], text: '', name: ''};
@@ -47,6 +47,10 @@ class App extends Component {
             </div>
         );
     }
+    renderUserForm() {
+      return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
+    }
+
     componentDidMount() {
         socket.on('message', message => this.messageRecieve(message));
         socket.on('update', ({users}) => this.chatUpdate(users));

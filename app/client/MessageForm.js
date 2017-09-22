@@ -1,4 +1,6 @@
-class MessageForm extends Component {
+import React from "react";
+
+class MessageForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {text: ''};
